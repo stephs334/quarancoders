@@ -2,6 +2,8 @@ apergen % test function that creates a square aperture
 
 z=fft2(ap); % take forward fourier transform in 2d of aperture generated in apergen
 
+z=fftshift(z); % shift fft to bring high intensity to center
+
 z=real(z); % take the real portion of the fft2
 
 I=z.^2; % intensity is the real portion squared
