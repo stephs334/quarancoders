@@ -64,8 +64,9 @@ for n=0:1500
     s=1500-n;
     ap5(round(1+apl/2+side/2-s):round(1+apl/2+side/2),round(1+apl/2-side/2):round(1+apl/2-side/2+n))=1;
 end
+%plot the triangular aperture
 figure(5)
-imagesc(ap5)
+imagesc(ap5) % plot the triangular aperture
 colormap gray
 axis equal
 axis([0 apl 0 apl])
