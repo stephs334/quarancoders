@@ -32,6 +32,7 @@ if strcmp(shape,'Square')==1 % if selected shape is square
     ylabel('Pixels') % label y axis
     axis([0 apl 0 apl]) % set axis limits to size of aperture field
     
+    % Plot far diffraction
     figure(2) % open another figure window
     z=fft2(ap1); % take forward fourier transform in 2d 
     z=fftshift(z); % shift fft to bring high intensity to center
@@ -45,6 +46,23 @@ if strcmp(shape,'Square')==1 % if selected shape is square
     xlabel('Pixels') % label x axis
     ylabel('Pixels') % label y axis
     caxis([1,5]) % scale color gradient
+    
+    % Plot horizontal cross section
+    hit=[(2375:2625);(1:251)]'; % define matrix for horizontal intensity
+    for ijk=1:251 % start for loop for center of plot
+        hit(ijk,2)=I(2374+ijk,2500); % define hit as I at each point
+    end % end for loop
+    figure(3) % open figure window
+    plot(hit) % plot horizontal intensity cross section
+    
+    % Plot vertical cross section
+    vit=[(2375:2625);(1:251)]'; % define matrix for vertical intensity
+    for ijk=1:251 % start for loop for center of plot
+        vit(ijk,2)=I(2374+ijk,2500); % define vit as I at each point
+    end % end for loop
+    figure(4) % open figure window
+    plot(vit) % plot vertical intensity cross section
+    
     eh=1;
     
 elseif strcmp(shape,'SingleSlit')==1 % if selected shape is single slit
@@ -76,6 +94,15 @@ elseif strcmp(shape,'SingleSlit')==1 % if selected shape is single slit
     xlabel('Pixels') % label x axis
     ylabel('Pixels') % label y axis
     caxis([1,5]) % scale color gradient
+    
+    % Plot horizontal cross section
+    hit=[(2375:2625);(1:251)]'; % define matrix for horizontal intensity
+    for ijk=1:251 % start for loop for center of plot
+        hit(ijk,2)=I(2374+ijk,2500); % define hit as I at each point
+    end % end for loop
+    figure(4) % open figure window
+    plot(hit) % plot horizontal intensity cross section
+    
     eh=2;
 
 elseif strcmp(shape,'DoubleSlit')==1 % if selected shape is double slit
@@ -109,6 +136,15 @@ elseif strcmp(shape,'DoubleSlit')==1 % if selected shape is double slit
     xlabel('Pixels') % label x axis
     ylabel('Pixels') % label y axis
     caxis([1,5]) % scale color gradient
+    
+    % Plot horizontal cross section
+    hit=[(2375:2625);(1:251)]'; % define matrix for horizontal intensity
+    for ijk=1:251 % start for loop for center of plot
+        hit(ijk,2)=I(2374+ijk,2500); % define hit as I at each point
+    end % end for loop
+    figure(5) % open figure window
+    plot(hit) % plot horizontal intensity cross section
+    
     eh=3;
 
 elseif strcmp(shape,'Circle')==1 % if selected shape is circle
@@ -144,6 +180,15 @@ elseif strcmp(shape,'Circle')==1 % if selected shape is circle
     xlabel('Pixels') % label x axis
     ylabel('Pixels') % label y axis
     caxis([1,5]) % scale color gradient
+    
+    % Plot horizontal cross section
+    hit=[(2375:2625);(1:251)]'; % define matrix for horizontal intensity
+    for ijk=1:251 % start for loop for center of plot
+        hit(ijk,2)=I(2374+ijk,2500); % define hit as I at each point
+    end % end for loop
+    figure(6) % open figure window
+    plot(hit) % plot horizontal intensity cross section
+    
     eh=4;
 
 elseif strcmp(shape,'Triangle')==1 % if selected shape is triangle
@@ -177,6 +222,31 @@ elseif strcmp(shape,'Triangle')==1 % if selected shape is triangle
     xlabel('Pixels') % label x axis
     ylabel('Pixels') % label y axis
     caxis([1,5]) % scale color gradient
+    
+    % Plot diagonal cross section
+    dit=[(2375:2625);(1:251)]'; % define matrix for diagonal intensity
+    for ijk=1:251 % start for loop for center of plot
+        dit(ijk,2)=I(2374+ijk,2626-ijk); % define dit as I at each point
+    end % end for loop
+    figure(7) % open figure window
+    plot(dit) % plot diagonal intensity cross section
+    
+    % Plot vertical cross section
+    vit=[(2375:2625);(1:251)]'; % define matrix for vertical intensity
+    for ijk=1:251 % start for loop for center of plot
+        vit(ijk,2)=I(2374+ijk,2500); % define vit as I at each point
+    end % end for loop
+    figure(8) % open figure window
+    plot(vit) % plot vertical intensity cross section
+    
+    % Plot horizontal cross section
+    hit=[(2375:2625);(1:251)]'; % define matrix for horizontal intensity
+    for ijk=1:251 % start for loop for center of plot
+        hit(ijk,2)=I(2374+ijk,2500); % define hit as I at each point
+    end % end for loop
+    figure(9) % open figure window
+    plot(hit) % plot horizontal intensity cross section
+    
     eh=5;
 
 else % if no conditions are met
