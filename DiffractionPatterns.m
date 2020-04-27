@@ -14,7 +14,7 @@ ap=zeros(ap1); % define actual aperture plane
 % Add if statements to final apertures
 
 % Define constants
-eh=0; % arbitrary constant
+eh=0;
 apl=5000; % length of aperture field
 
 if strcmp(shape,'Square')==1 % if selected shape is square
@@ -23,9 +23,9 @@ if strcmp(shape,'Square')==1 % if selected shape is square
     sql=500; % size of the square
     ap1(round(1+apl/2-sql/2):round(1+apl/2+sql/2),round(1+apl/2-sql/2):round(1+apl/2+sql/2))=1; % define aperture
    
-    % Plot the square aperature
+    % Plot the square aperture
     figure(1) % open figure window
-    imagesc(ap1) % plot image of the aperature field
+    imagesc(ap1) % plot image of the aperture field
     colormap gray % use a gray color scale
     axis equal % set the display scale of the axes
     xlabel('Pixels') % label x axis
@@ -124,7 +124,7 @@ elseif strcmp(shape,'DoubleSlit')==1 % if selected shape is double slit
     axis([0 apl 0 apl]) % scale axes
     
     figure(4) % open figure window to plot fourier transform
-    z=fft2(ap3); % take forward fourier transform in 2d of aperture generated in apergen
+    z=fft2(ap3); % take forward fourier transform in 2d of aperture
     z=fftshift(z); % shift fft to bring high intensity to center
     z=real(z); % take the real portion of the fft2
     I=z.^2; % intensity is the real portion squared
@@ -160,7 +160,7 @@ elseif strcmp(shape,'Circle')==1 % if selected shape is circle
     
     % Plot the circular aperture
     figure(4) % open figure window
-    imagesc(ap4) % plot the circular aperature
+    imagesc(ap4) % plot the circular aperture
     colormap gray % use gray color scale
     axis equal % use equivalent axis scales
     axis([0 apl 0 apl]) % scale axes
@@ -168,7 +168,7 @@ elseif strcmp(shape,'Circle')==1 % if selected shape is circle
     ylabel('Pixels') % label y axis
     
     figure(5) % open figure window
-    z=fft2(ap4); % take forward fourier transform in 2d of aperture generated in apergen
+    z=fft2(ap4); % take forward fourier transform in 2d of aperture
     z=fftshift(z); % shift fft to bring high intensity to center
     z=real(z); % take the real portion of the fft2
     I=z.^2; % intensity is the real portion squared
@@ -210,7 +210,7 @@ elseif strcmp(shape,'Triangle')==1 % if selected shape is triangle
     axis([0 apl 0 apl]) % scale axes
     
     figure(6) % open figure window
-    z=fft2(ap5); % take forward fourier transform in 2d of aperture generated in apergen
+    z=fft2(ap5); % take forward fourier transform in 2d of aperture
     z=fftshift(z); % shift fft to bring high intensity to center
     z=real(z); % take the real portion of the fft2
     I=z.^2; % intensity is the real portion squared
@@ -250,7 +250,7 @@ elseif strcmp(shape,'Triangle')==1 % if selected shape is triangle
     eh=5;
 
 else % if no conditions are met
-  disp("Error occurs. Please see help file for further instrunctions.") % display error message
+  disp("Error occurs. Please see help file for further instructions.") % display error message
   return
   
 end
