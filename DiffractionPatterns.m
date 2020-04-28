@@ -6,15 +6,15 @@ function Diffraction(shape) % create function 'Diffraction' with input 'shape'
 % Final Project
 % Select an aperture to create and plot the diffraction patterns and cross
 % sections; input 'Square','SingleSlit','DoubleSlit','Circle','Triangle'.
+% To run the programme, input Diffraction('SELECTED SHAPE') in the command window
 
 % Define aperture field
-ap1=5000; % size of aperture field
-ap=zeros(ap1); % define actual aperture plane
+%ap1=5000; % size of aperture field
+%ap=zeros(ap1); % define actual aperture plane
 
 % Add if statements to final apertures
 
-% Define constants
-eh=0;
+% Define constant
 apl=5000; % length of aperture field
 
 if strcmp(shape,'Square')==1 % if selected shape is square
@@ -63,7 +63,7 @@ if strcmp(shape,'Square')==1 % if selected shape is square
     figure(4) % open figure window
     plot(vit) % plot vertical intensity cross section
     
-    eh=1;
+    
     
 elseif strcmp(shape,'SingleSlit')==1 % if selected shape is single slit
     % Define single slit
@@ -103,7 +103,7 @@ elseif strcmp(shape,'SingleSlit')==1 % if selected shape is single slit
     figure(4) % open figure window
     plot(hit) % plot horizontal intensity cross section
     
-    eh=2;
+    
 
 elseif strcmp(shape,'DoubleSlit')==1 % if selected shape is double slit
     % Define double slit
@@ -145,7 +145,7 @@ elseif strcmp(shape,'DoubleSlit')==1 % if selected shape is double slit
     figure(5) % open figure window
     plot(hit) % plot horizontal intensity cross section
     
-    eh=3;
+   
 
 elseif strcmp(shape,'Circle')==1 % if selected shape is circle
     % Define cicular aperture
@@ -189,7 +189,7 @@ elseif strcmp(shape,'Circle')==1 % if selected shape is circle
     figure(6) % open figure window
     plot(hit) % plot horizontal intensity cross section
     
-    eh=4;
+   
 
 elseif strcmp(shape,'Triangle')==1 % if selected shape is triangle
     % Define triangular aperture 
@@ -247,7 +247,7 @@ elseif strcmp(shape,'Triangle')==1 % if selected shape is triangle
     figure(9) % open figure window
     plot(hit) % plot horizontal intensity cross section
     
-    eh=5;
+    
 
 else % if no conditions are met
   disp("Error occurs. Please see help file for further instructions.") % display error message
@@ -256,14 +256,4 @@ else % if no conditions are met
 end
 
 
-if eh==1
-       
-elseif eh==2
-    
-elseif eh==3
 
-elseif eh==4
-    
-elseif eh==5
-    
-end 
