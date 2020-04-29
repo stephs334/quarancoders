@@ -5,27 +5,22 @@ function Diffraction(shape) % create function 'Diffraction' with input 'shape'
 % 29 April 2020
 % Final Project
 % Select an aperture to create and plot the diffraction patterns and cross
-% sections; input 'Square','SingleSlit','DoubleSlit','Circle','Triangle'.
+% sections; input 'Rectangle','SingleSlit','DoubleSlit','Circle','Triangle'.
 % To run the programme, input Diffraction('SELECTED SHAPE') in the command window
-
-% Define aperture field
-%ap1=5000; % size of aperture field
-%ap=zeros(ap1); % define actual aperture plane
-
-% Add if statements to final apertures
 
 % Define constant
 apl=5000; % length of aperture field
 
-if strcmp(shape,'Square')==1 % if selected shape is square
-    % Define square aperture
+if strcmp(shape,'Rectangle')==1 % if selected shape is rectangle
+    % Define rectangular aperture
     ap1=zeros(apl); % define the aperture plane
-    sql=500; % size of the square
+    sql=500; % size of the rectangle
     ap1(round(1+apl/2-sql/2):round(1+apl/2+sql/2),round(1+apl/2-sql/2):round(1+apl/2+sql/2))=1; % define aperture
    
-    % Plot the square aperture
+    % Plot the rectangular aperture
     figure(1) % open figure window
     imagesc(ap1) % plot image of the aperture field
+    title('Rectanglular Aperture') % title figure
     colormap gray % use a gray color scale
     axis equal % set the display scale of the axes
     xlabel('Pixels') % label x axis
@@ -40,7 +35,9 @@ if strcmp(shape,'Square')==1 % if selected shape is square
     I=z.^2; % intensity is the real portion squared
     l=I.^(0.05); % raise I to a power <<1 to scale it
     imagesc(l) % create an imagesc
+    title('Diffraction Pattern through a Rectangular Aperture') % title figure
     colormap gray % use a gray color scale
+    colorbar % display colorbar
     xlim([0,5000]) % scale x axis
     ylim([0,5000]) % scale y axis
     xlabel('Pixels') % label x axis
@@ -75,7 +72,9 @@ elseif strcmp(shape,'SingleSlit')==1 % if selected shape is single slit
     % Plot the single slit
     figure(2) % open figure window
     imagesc(ap2) % plot the single slit
+    title('SingleSlit Aperture') % title figure
     colormap gray % use gray color scale
+    colorbar % display colorbar
     axis equal % use equivalent axis scales
     xlabel('Pixels') % label x axis
     ylabel('Pixels') % label y axis
@@ -88,7 +87,9 @@ elseif strcmp(shape,'SingleSlit')==1 % if selected shape is single slit
     I=z.^2; % intensity is the real portion squared
     l=I.^(0.05); % raise I to a power <<1 to scale it
     imagesc(l) % create an imagesc
+    title('Diffraction Pattern through a Single Slit Aperture') % title figure
     colormap gray % use a gray color scale
+    colorbar % display colorbar
     xlim([0,5000]) % scale x axis
     ylim([0,5000]) % scale y axis
     xlabel('Pixels') % label x axis
@@ -117,6 +118,7 @@ elseif strcmp(shape,'DoubleSlit')==1 % if selected shape is double slit
     % Plot the double slit
     figure(3) % open figure window
     imagesc(ap3) % plot the double slit
+    title('DoubleSlit Aperture') % title figure
     colormap gray % use gray color map
     axis equal % use equivalent axis scales
     xlabel('Pixels') % label x axis
@@ -130,7 +132,9 @@ elseif strcmp(shape,'DoubleSlit')==1 % if selected shape is double slit
     I=z.^2; % intensity is the real portion squared
     l=I.^(0.05); % raise I to a power <<1 to scale it
     imagesc(l) % create an imagesc
+    title('Diffraction Pattern through a Double Slit Aperture') % title figure
     colormap gray % use a gray color scale
+    colorbar % display colorbar
     xlim([0,5000]) % scale x axis
     ylim([0,5000]) % scale y axis
     xlabel('Pixels') % label x axis
@@ -161,6 +165,7 @@ elseif strcmp(shape,'Circle')==1 % if selected shape is circle
     % Plot the circular aperture
     figure(4) % open figure window
     imagesc(ap4) % plot the circular aperture
+    title('Circular Aperture') % title figure
     colormap gray % use gray color scale
     axis equal % use equivalent axis scales
     axis([0 apl 0 apl]) % scale axes
@@ -174,7 +179,9 @@ elseif strcmp(shape,'Circle')==1 % if selected shape is circle
     I=z.^2; % intensity is the real portion squared
     l=I.^(0.05); % raise I to a power <<1 to scale it
     imagesc(l) % create an imagesc
+    title('Diffraction Pattern through a Circular Aperture') % title figure
     colormap gray % use a gray color scale
+    colorbar % display colorbar
     xlim([0,5000]) % scale x axis
     ylim([0,5000]) % scale y axis
     xlabel('Pixels') % label x axis
@@ -203,6 +210,7 @@ elseif strcmp(shape,'Triangle')==1 % if selected shape is triangle
     % Plot the triangular aperture
     figure(5) % open figure window
     imagesc(ap5) % plot the triangular aperture
+    title('Triangular Aperture') % title figure
     colormap gray % use gray color scale
     axis equal % use equivalent axis scales
     xlabel('Pixels') % label x axis
@@ -216,7 +224,9 @@ elseif strcmp(shape,'Triangle')==1 % if selected shape is triangle
     I=z.^2; % intensity is the real portion squared
     l=I.^(0.05); % raise I to a power <<1 to scale it
     imagesc(l) % create an imagesc
+    title('Diffraction Pattern through a Triangular Aperture') % title figure
     colormap gray % use a gray color scale
+    colorbar % display colorbar
     xlim([0,5000]) % scale x axis
     ylim([0,5000]) % scale y axis
     xlabel('Pixels') % label x axis
@@ -254,6 +264,3 @@ else % if no conditions are met
   return
   
 end
-
-
-
