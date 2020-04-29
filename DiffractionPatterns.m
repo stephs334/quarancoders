@@ -20,7 +20,7 @@ if strcmp(shape,'Rectangle')==1 % if selected shape is rectangle
     % Plot the rectangular aperture
     figure(1) % open figure window
     imagesc(ap1) % plot image of the aperture field
-    title('Rectanglular Aperture') % title figure
+    title('Rectangular Aperture') % title figure
     colormap gray % use a gray color scale
     axis equal % set the display scale of the axes
     xlabel('Pixels') % label x axis
