@@ -51,6 +51,10 @@ if strcmp(shape,'Rectangle')==1 % if selected shape is rectangle
     end % end for loop
     figure(3) % open figure window
     plot(hit) % plot horizontal intensity cross section
+    xlim([0,250]) % scale x axis
+    xlabel('Pixels') % label x axis
+    ylabel('W/m^2') % label y axis
+    title('Horizontal Intensity Cross Section through a Rectangular Aperture') % title figure
     
     % Plot vertical cross section
     vit=[(2375:2625);(1:251)]'; % define matrix for vertical intensity
@@ -59,6 +63,10 @@ if strcmp(shape,'Rectangle')==1 % if selected shape is rectangle
     end % end for loop
     figure(4) % open figure window
     plot(vit) % plot vertical intensity cross section
+    title('Vertical Intensity Cross Section through a Rectangular Aperture') % title figure
+    xlim([0,250]) % scale x axis
+    xlabel('Pixels') % label x axis
+    ylabel('W/m^2') % label y axis
     
     
     
@@ -103,6 +111,10 @@ elseif strcmp(shape,'SingleSlit')==1 % if selected shape is single slit
     end % end for loop
     figure(4) % open figure window
     plot(hit) % plot horizontal intensity cross section
+    xlim([0,250]) % scale x axis
+    title('Horizontal Intensity Cross Section through a SingleSlit Aperture') % title figure
+    xlabel('Pixels') % label x axis
+    ylabel('W/m^2') % label y axis
     
     
 
@@ -148,6 +160,10 @@ elseif strcmp(shape,'DoubleSlit')==1 % if selected shape is double slit
     end % end for loop
     figure(5) % open figure window
     plot(hit) % plot horizontal intensity cross section
+    title('Horizontal Intensity Cross Section through a DoubleSlit Aperture') % title figure
+    xlim([0,250]) % scale x axis
+    xlabel('Pixels') % label x axis
+    ylabel('W/m^2') % label y axis
     
    
 
@@ -195,6 +211,10 @@ elseif strcmp(shape,'Circle')==1 % if selected shape is circle
     end % end for loop
     figure(6) % open figure window
     plot(hit) % plot horizontal intensity cross section
+    xlim([0,250]) % scale x axis
+    title('Horizontal Intensity Cross Section through a Circular Aperture') % title figure
+    xlabel('Pixels') % label x axis
+    ylabel('W/m^2') % label y axis
     
    
 
@@ -240,6 +260,8 @@ elseif strcmp(shape,'Triangle')==1 % if selected shape is triangle
     end % end for loop
     figure(7) % open figure window
     plot(dit) % plot diagonal intensity cross section
+    xlim([0,250]) % scale x axis
+    title('Diagonal Intensity Cross Section through a Triangular Aperture') % title figure
     
     % Plot vertical cross section
     vit=[(2375:2625);(1:251)]'; % define matrix for vertical intensity
@@ -248,6 +270,10 @@ elseif strcmp(shape,'Triangle')==1 % if selected shape is triangle
     end % end for loop
     figure(8) % open figure window
     plot(vit) % plot vertical intensity cross section
+    xlim([0,250]) % scale x axis
+    xlabel('Pixels') % label x axis
+    ylabel('W/m^2') % label y axis
+    title('Vertical Intensity Cross Section through a Triangular Aperture') % title figure
     
     % Plot horizontal cross section
     hit=[(2375:2625);(1:251)]'; % define matrix for horizontal intensity
@@ -256,6 +282,10 @@ elseif strcmp(shape,'Triangle')==1 % if selected shape is triangle
     end % end for loop
     figure(9) % open figure window
     plot(hit) % plot horizontal intensity cross section
+    xlim([0,250]) % scale x axis
+    xlabel('Pixels') % label x axis
+    ylabel('W/m^2') % label y axis
+    title('Horizontal Intensity Cross Section through a Triangular Aperture') % title figure
     
     
 
