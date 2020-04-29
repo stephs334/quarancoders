@@ -322,6 +322,8 @@ elseif strcmp(shape,'Triangle')==1 % if selected shape is triangle
     plot(dit) % plot diagonal intensity cross section
     xlim([0,250]) % scale x axis
     title('Diagonal Intensity Cross Section through a Triangular Aperture') % title figure
+    xlabel('Pixels') % label x axis
+    ylabel('W/m^2') % label y axis
     
     % Plot vertical cross section
     vit=[(2375:2625);(1:251)]'; % define matrix for vertical intensity
