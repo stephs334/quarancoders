@@ -44,12 +44,24 @@ if strcmp(shape,'Rectangle')==1 % if selected shape is rectangle
     ylabel('Pixels') % label y axis
     caxis([1,5]) % scale color gradient
     
+    figure(3) % open zoomed figure window
+    imagesc(l) % create an imagesc
+    colormap gray % use a gray color scale
+    axis equal % set the display scale of the axes
+    axis([apl/2-250/2 apl/2+250/2 apl/2-250/2 apl/2+250/2]) % scale axes to center 250 pixels
+    xlabel('Pixel') % label x axis
+    ylabel('Pixel') % label y axis
+    title('Close-Up Rectangular Diffraction') % title figure
+    c2=colorbar; % show color bar
+    c2.Label.String='Scaled Intensity [Arb. Units]'; % label color bar
+    caxis([2,4]) % scale color gradient to lower and upper colorbar bounds
+    
     % Plot horizontal cross section
     hit=[(2375:2625);(1:251)]'; % define matrix for horizontal intensity
     for ijk=1:251 % start for loop for center of plot
         hit(ijk,2)=I(2374+ijk,2500); % define hit as I at each point
     end % end for loop
-    figure(3) % open figure window
+    figure(4) % open figure window
     plot(hit) % plot horizontal intensity cross section
     xlim([0,250]) % scale x axis
     xlabel('Pixels') % label x axis
@@ -61,7 +73,7 @@ if strcmp(shape,'Rectangle')==1 % if selected shape is rectangle
     for ijk=1:251 % start for loop for center of plot
         vit(ijk,2)=I(2374+ijk,2500); % define vit as I at each point
     end % end for loop
-    figure(4) % open figure window
+    figure(5) % open figure window
     plot(vit) % plot vertical intensity cross section
     title('Vertical Intensity Cross Section through a Rectangular Aperture') % title figure
     xlim([0,250]) % scale x axis
@@ -78,7 +90,7 @@ elseif strcmp(shape,'SingleSlit')==1 % if selected shape is single slit
     ap2(round(1+apl/2-height/2):round(1+apl/2+height/2),round(1+apl/2-width/2):round(1+apl/2+width/2))=1; % define aperture
     
     % Plot the single slit
-    figure(2) % open figure window
+    figure(1) % open figure window
     imagesc(ap2) % plot the single slit
     title('SingleSlit Aperture') % title figure
     colormap gray % use gray color scale
@@ -88,7 +100,7 @@ elseif strcmp(shape,'SingleSlit')==1 % if selected shape is single slit
     ylabel('Pixels') % label y axis
     axis([0 apl 0 apl]) % scale axes
     
-    figure(3) % Plot the Fourier Transform for a single slit
+    figure(2) % Plot the Fourier Transform for a single slit
     z=fft2(ap2); % take forward fourier transform in 2d 
     z=fftshift(z); % shift fft to bring high intensity to center
     z=real(z); % take the real portion of the fft2
@@ -103,6 +115,18 @@ elseif strcmp(shape,'SingleSlit')==1 % if selected shape is single slit
     xlabel('Pixels') % label x axis
     ylabel('Pixels') % label y axis
     caxis([1,5]) % scale color gradient
+    
+    figure(3) % open zoomed figure window
+    imagesc(l) % create an imagesc
+    colormap gray % use a gray color scale
+    axis equal % set the display scale of the axes
+    axis([apl/2-250/2 apl/2+250/2 apl/2-250/2 apl/2+250/2]) % scale axes to center 250 pixels
+    xlabel('Pixel') % label x axis
+    ylabel('Pixel') % label y axis
+    title('Close-Up Single Slit Diffraction') % title figure
+    c2=colorbar; % show color bar
+    c2.Label.String='Scaled Intensity [Arb. Units]'; % label color bar
+    caxis([1.5,3.5]) % scale color gradient to lower and upper colorbar bounds
     
     % Plot horizontal cross section
     hit=[(2375:2625);(1:251)]'; % define matrix for horizontal intensity
@@ -128,7 +152,7 @@ elseif strcmp(shape,'DoubleSlit')==1 % if selected shape is double slit
     ap3(round(1+apl/2-height/2):round(1+apl/2+height/2),round(1+apl/2+spacing/2):round(1+apl/2+spacing/2+width2))=1; % second slit
     
     % Plot the double slit
-    figure(3) % open figure window
+    figure(1) % open figure window
     imagesc(ap3) % plot the double slit
     title('DoubleSlit Aperture') % title figure
     colormap gray % use gray color map
@@ -137,7 +161,7 @@ elseif strcmp(shape,'DoubleSlit')==1 % if selected shape is double slit
     ylabel('Pixels') % label y axis
     axis([0 apl 0 apl]) % scale axes
     
-    figure(4) % open figure window to plot fourier transform
+    figure(2) % open figure window to plot fourier transform
     z=fft2(ap3); % take forward fourier transform in 2d of aperture
     z=fftshift(z); % shift fft to bring high intensity to center
     z=real(z); % take the real portion of the fft2
@@ -153,12 +177,24 @@ elseif strcmp(shape,'DoubleSlit')==1 % if selected shape is double slit
     ylabel('Pixels') % label y axis
     caxis([1,5]) % scale color gradient
     
+    figure(3) % open zoomed figure window
+    imagesc(l) % create an imagesc
+    colormap gray % use a gray color scale
+    axis equal % set the display scale of the axes
+    axis([apl/2-250/2 apl/2+250/2 apl/2-250/2 apl/2+250/2]) % scale axes to center 250 pixels
+    xlabel('Pixel') % label x axis
+    ylabel('Pixel') % label y axis
+    title('Close-Up Double Slit Diffraction') % title figure
+    c2=colorbar; % show color bar
+    c2.Label.String='Scaled Intensity [Arb. Units]'; % label color bar
+    caxis([1.25,4]) % scale color gradient to lower and upper colorbar bounds
+    
     % Plot horizontal cross section
     hit=[(2375:2625);(1:251)]'; % define matrix for horizontal intensity
     for ijk=1:251 % start for loop for center of plot
         hit(ijk,2)=I(2374+ijk,2500); % define hit as I at each point
     end % end for loop
-    figure(5) % open figure window
+    figure(4) % open figure window
     plot(hit) % plot horizontal intensity cross section
     title('Horizontal Intensity Cross Section through a DoubleSlit Aperture') % title figure
     xlim([0,250]) % scale x axis
@@ -179,7 +215,7 @@ elseif strcmp(shape,'Circle')==1 % if selected shape is circle
     ap4(circle)=1; % define aperture
     
     % Plot the circular aperture
-    figure(4) % open figure window
+    figure(1) % open figure window
     imagesc(ap4) % plot the circular aperture
     title('Circular Aperture') % title figure
     colormap gray % use gray color scale
@@ -188,7 +224,7 @@ elseif strcmp(shape,'Circle')==1 % if selected shape is circle
     xlabel('Pixels') % label x axis
     ylabel('Pixels') % label y axis
     
-    figure(5) % open figure window
+    figure(2) % open figure window
     z=fft2(ap4); % take forward fourier transform in 2d of aperture
     z=fftshift(z); % shift fft to bring high intensity to center
     z=real(z); % take the real portion of the fft2
@@ -204,12 +240,24 @@ elseif strcmp(shape,'Circle')==1 % if selected shape is circle
     ylabel('Pixels') % label y axis
     caxis([1,5]) % scale color gradient
     
+    figure(3) % open zoomed figure window
+    imagesc(l) % create an imagesc
+    colormap gray % use a gray color scale
+    axis equal % set the display scale of the axes
+    axis([apl/2-250/2 apl/2+250/2 apl/2-250/2 apl/2+250/2]) % scale axes to center 250 pixels
+    xlabel('Pixel') % label x axis
+    ylabel('Pixel') % label y axis
+    title('Close-Up Circular Diffraction') % title figure
+    c2=colorbar; % show color bar
+    c2.Label.String='Scaled Intensity [Arb. Units]'; % label color bar
+    caxis([2,4]) % scale color gradient to lower and upper colorbar bounds
+    
     % Plot horizontal cross section
     hit=[(2375:2625);(1:251)]'; % define matrix for horizontal intensity
     for ijk=1:251 % start for loop for center of plot
         hit(ijk,2)=I(2374+ijk,2500); % define hit as I at each point
     end % end for loop
-    figure(6) % open figure window
+    figure(4) % open figure window
     plot(hit) % plot horizontal intensity cross section
     xlim([0,250]) % scale x axis
     title('Horizontal Intensity Cross Section through a Circular Aperture') % title figure
@@ -228,7 +276,7 @@ elseif strcmp(shape,'Triangle')==1 % if selected shape is triangle
     end % end for loop
     
     % Plot the triangular aperture
-    figure(5) % open figure window
+    figure(1) % open figure window
     imagesc(ap5) % plot the triangular aperture
     title('Triangular Aperture') % title figure
     colormap gray % use gray color scale
@@ -237,7 +285,7 @@ elseif strcmp(shape,'Triangle')==1 % if selected shape is triangle
     ylabel('Pixels') % label y axis
     axis([0 apl 0 apl]) % scale axes
     
-    figure(6) % open figure window
+    figure(2) % open figure window
     z=fft2(ap5); % take forward fourier transform in 2d of aperture
     z=fftshift(z); % shift fft to bring high intensity to center
     z=real(z); % take the real portion of the fft2
@@ -253,12 +301,24 @@ elseif strcmp(shape,'Triangle')==1 % if selected shape is triangle
     ylabel('Pixels') % label y axis
     caxis([1,5]) % scale color gradient
     
+    figure(3) % open zoomed figure window
+    imagesc(l) % create an imagesc
+    colormap gray % use a gray color scale
+    axis equal % set the display scale of the axes
+    axis([apl/2-250/2 apl/2+250/2 apl/2-250/2 apl/2+250/2]) % scale axes to center 250 pixels
+    xlabel('Pixel') % label x axis
+    ylabel('Pixel') % label y axis
+    title('Close-Up Triangular Diffraction') % title figure
+    c2=colorbar; % show color bar
+    c2.Label.String='Scaled Intensity [Arb. Units]'; % label color bar
+    caxis([1.4,5]) % scale color gradient to lower and upper colorbar bounds
+    
     % Plot diagonal cross section
     dit=[(2375:2625);(1:251)]'; % define matrix for diagonal intensity
     for ijk=1:251 % start for loop for center of plot
         dit(ijk,2)=I(2374+ijk,2626-ijk); % define dit as I at each point
     end % end for loop
-    figure(7) % open figure window
+    figure(4) % open figure window
     plot(dit) % plot diagonal intensity cross section
     xlim([0,250]) % scale x axis
     title('Diagonal Intensity Cross Section through a Triangular Aperture') % title figure
@@ -268,7 +328,7 @@ elseif strcmp(shape,'Triangle')==1 % if selected shape is triangle
     for ijk=1:251 % start for loop for center of plot
         vit(ijk,2)=I(2374+ijk,2500); % define vit as I at each point
     end % end for loop
-    figure(8) % open figure window
+    figure(5) % open figure window
     plot(vit) % plot vertical intensity cross section
     xlim([0,250]) % scale x axis
     xlabel('Pixels') % label x axis
@@ -280,7 +340,7 @@ elseif strcmp(shape,'Triangle')==1 % if selected shape is triangle
     for ijk=1:251 % start for loop for center of plot
         hit(ijk,2)=I(2374+ijk,2500); % define hit as I at each point
     end % end for loop
-    figure(9) % open figure window
+    figure(6) % open figure window
     plot(hit) % plot horizontal intensity cross section
     xlim([0,250]) % scale x axis
     xlabel('Pixels') % label x axis
